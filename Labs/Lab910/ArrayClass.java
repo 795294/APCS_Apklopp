@@ -1,6 +1,6 @@
 
 /**
- * Write a description of class ArrayClass here.
+ * Creates an array of numbers and calculates mean, median, and mode
  *
  * @author (Peter Klopp)
  * @version (Lab920)
