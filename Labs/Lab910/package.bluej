@@ -1,8 +1,11 @@
 #BlueJ package file
+dependency1.from=ArrayRunner
+dependency1.to=ArrayClass
+dependency1.type=UsesDependency
 editor.fx.0.height=722
 editor.fx.0.width=800
-editor.fx.0.x=320
-editor.fx.0.y=75
+editor.fx.0.x=494
+editor.fx.0.y=162
 objectbench.height=101
 objectbench.width=776
 package.divider.horizontal=0.6
@@ -13,7 +16,7 @@ package.editor.x=0
 package.editor.y=23
 package.frame.height=600
 package.frame.width=800
-package.numDependencies=0
+package.numDependencies=1
 package.numTargets=2
 package.showExtends=true
 package.showUses=true

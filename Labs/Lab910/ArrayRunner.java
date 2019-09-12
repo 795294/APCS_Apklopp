@@ -16,5 +16,7 @@ public class ArrayRunner
         array.printArray();
         System.out.println(array.getSum());
         System.out.println(array.getMean());
+        System.out.println(array.getMedian());
+        System.out.println(array.getMode());
     }
 }
