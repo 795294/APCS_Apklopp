@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=ExamPrep
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ExamPrep\ here.\r\n\r\n\ @author\ (Peter\ Klopp)\r\n\ @version\ (ExamPrep\ 912)\r\n
+comment1.params=n\ n2
+comment1.target=ExamPrep(int,\ int)
+comment2.params=
+comment2.target=void\ main()
+comment3.params=a\ b
+comment3.target=double\ multiply(double,\ double)
+comment4.params=a\ b
+comment4.target=double\ divide(double,\ double)
+comment5.params=a\ b
+comment5.target=double\ add(double,\ double)
+comment6.params=a\ b
+comment6.target=double\ sub(double,\ double)
+comment7.params=a
+comment7.target=int\ digitsCounter(int)
+comment8.params=a
+comment8.target=int\ digitsSum(int)
+comment9.params=a
+comment9.target=int\ addArray(int)
+numComments=10
