@@ -2,7 +2,7 @@
 /**
  * Write a description of class FirstClass here.
  *
- * @author (Peter)
+ * @author (Peter Klopp)
  * @version (815)
  */
 public class FirstClass
