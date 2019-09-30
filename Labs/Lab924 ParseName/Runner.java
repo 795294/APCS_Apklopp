@@ -15,7 +15,7 @@ public class Runner{
         String inputStr = "";
 
         Person[] personArray = new Person[1];
-        Person[] personArray2 = personArray;
+
         int i = 0;
 
         while(!inputStr.equals("quit")){
@@ -25,23 +25,24 @@ public class Runner{
             System.out.println(inputStr);
 
             if(!inputStr.equals("quit")){
-                i++;
                 
                 Person p = new Person(inputStr);
                 
-                personArray2[i] = p;
-                printNames(personArray2);
+                personArray[i] = p;
+                printNames(personArray);
 
                 if(personArray[personArray.length-1] != null){
                     System.out.println("\n Done with the list?");
                     inputStr = kb.nextLine();
                     
                     if(inputStr.equals("no")){
-                        personArray2 = extendArray(personArray, 10);
+                        personArray = extendArray(personArray, 1);
                     }
 
                 }
             }
+            
+            i++;
         }
 
     }
@@ -56,11 +57,11 @@ public class Runner{
         return personArray2;
     }
 
-    public static void printNames(Person[] personArray2){
+    public static void printNames(Person[] p){
         System.out.print("List: ");
 
-        for(int i = 0;i<personArray2.length;i++){
-            System.out.print(personArray2[i].fName + " " + personArray2[i].mName + " " + personArray2[i].lName + ", ");
+        for(int i = 0;i<p.length;i++){
+            p[i].printName();
         }
 
     }

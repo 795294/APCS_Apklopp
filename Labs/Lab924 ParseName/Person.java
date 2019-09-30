@@ -53,5 +53,16 @@ public class Person
             System.out.println("Last Name: " + lName);
         
     }
+    
+    public void printName(){
+        if(!fName.equals("")){
+        System.out.print(fName + " ");
+        System.out.print(mName + " ");
+        System.out.print(lName+", ");
+        }
+        else{
+            System.out.println("Your name is incorrectly formatted, ");
+        }
+    }
 
 }
