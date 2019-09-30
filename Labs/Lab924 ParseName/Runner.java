@@ -6,6 +6,7 @@
  * @version (Lab924/Lab926)
  */
 import java.util.Scanner;
+
 public class Runner{
 
     public static void main(){
@@ -13,7 +14,7 @@ public class Runner{
         Scanner kb = new Scanner(System.in);
         String inputStr = "";
 
-        Person[] personArray = new Person[2];
+        Person[] personArray = new Person[1];
         Person[] personArray2 = personArray;
         int i = 0;
 
