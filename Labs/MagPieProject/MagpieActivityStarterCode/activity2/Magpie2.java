@@ -46,25 +46,25 @@ public class Magpie2
 				|| statement.indexOf("brother") >= 0)
 		{
 			response = "Tell me more about your family.";
-		} else if(statement.indexOf("cat") >= 0 || statement.indexOf("dog") >= 0){
-		    response = "Tell me more about your pets.";
-		} else if(statement.indexOf("Mr. Ettlin") >= 0){
-		   response = "He sounds like a good teacher.";
-		}
-		else if(statement.indexOf("rain") >= 0){
-		   response = "Tell me more about the weather";
-		}
-		else if(statement.indexOf("college") >= 0){
-		   response = "Where are you applying?";
-		}
-		else if(statement.indexOf("yes") >= 0){
-		   response = "Why so positive?";
-		}
-		else
-		{
-			response = getRandomResponse();
-		}
-		return response;
+        		} else if(statement.indexOf("cat") >= 0 || statement.indexOf("dog") >= 0){
+        		    response = "Tell me more about your pets.";
+        		} else if(statement.indexOf("Mr. Ettlin") >= 0){
+        		   response = "He sounds like a good teacher.";
+        		}
+        		else if(statement.indexOf("rain") >= 0){
+        		   response = "Tell me more about the weather";
+        		}
+        		else if(statement.indexOf("college") >= 0){
+        		   response = "Where are you applying?";
+        		}
+        		else if(statement.indexOf("yes") >= 0){
+        		   response = "Why so positive?";
+        		}
+        		else
+        		{
+        			response = getRandomResponse();
+        		}
+        		return response;
 	}
 
 	/**
