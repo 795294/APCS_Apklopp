@@ -7,9 +7,9 @@
  */
 public class Person
 {
-    String fName = "";
-    String mName = "";
-    String lName = "";
+    private String fName = "";
+    private String mName = "";
+    private String lName = "";
 
     public Person(String fullName)
     {
@@ -52,6 +52,14 @@ public class Person
             System.out.println("Middle Name: " + mName);
             System.out.println("Last Name: " + lName);
         
+    }
+    
+    public String getfName(){//  getter for an instance variable
+        return fName;
+    }
+    
+    public void setLastName(String ln){
+        lName = ln;
     }
     
     public void printName(){
