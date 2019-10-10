@@ -49,9 +49,35 @@ public class Exam1Corrections
     
     public static void problem9(){
         for(int i = 0; i<4; i++){
-            
+            for(int j = 0; j<= i; j++){
+                System.out.print("X ");
+            }
+            System.out.println();
         }
+        
+        //X
+        //X X
+        //X X X
+        //X X X X
     }
     
+    public static void problem11(){
+          Exam1Corrections ec = new Exam1Corrections();
+          
+          System.out.println(ec.digitsSum(12345, 0));
+    }
     
+    private int sum = 0;
+    
+    public int digitsSum(int num, int x){
+       while(num > 0){ //stops when out of digits
+           x = num%10; //returns value of last digit
+           
+           sum = sum+x; //adds value of last digits
+           
+           num = num/10; //strips last digit
+        }
+        
+        return sum;
+    }  
 }
