@@ -1,6 +1,6 @@
 
 /**
- * Write a description of class Exam1Corrections here.
+ * Test corrections for the first exam
  *
  * @author (Peter Klopp)
  * @version (Exam 1 Corrections)
@@ -64,7 +64,7 @@ public class Exam1Corrections
     public static void problem11(){
           Exam1Corrections ec = new Exam1Corrections();
           
-          System.out.println(ec.digitsSum(12345, 0));
+          System.out.println(ec.digitsSum(123456, 0));
     }
     
     private int sum = 0;
