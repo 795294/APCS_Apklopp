@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class MeanMedianMode here.
+ * Return Mean+Median+Mode of ArrayList
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Peter Klopp)
+ * @version (Lab1015 - MMM)
  */
 
 import java.util.ArrayList;
@@ -11,11 +11,17 @@ import java.util.Collections;
 
 public class MeanMedianMode
 {
-    ArrayList<Integer>nums;
+    ArrayList<Integer>nums = new ArrayList<Integer>();
     
-    public void loadArrayList(){
-        for(int i = 0; i<20; i++){
-            nums.add((int)(Math.random()*100));
+    public MeanMedianMode() {
+        loadArrayList(100);
+    }
+    
+    public void loadArrayList(int n){
+        for(int i = 0; i<n; i++){
+            int rand = (int)(Math.random()*100);
+            
+            nums.add(rand);
         }
     }
     

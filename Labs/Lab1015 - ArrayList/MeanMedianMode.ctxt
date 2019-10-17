@@ -1,13 +1,15 @@
 #BlueJ class context
 comment0.target=MeanMedianMode
 comment1.params=
-comment1.target=void\ loadArrayList()
-comment2.params=
-comment2.target=void\ printArrayList()
+comment1.target=MeanMedianMode()
+comment2.params=n
+comment2.target=void\ loadArrayList(int)
 comment3.params=
-comment3.target=double\ getMean()
+comment3.target=void\ printArrayList()
 comment4.params=
-comment4.target=double\ getMedian()
+comment4.target=double\ getMean()
 comment5.params=
-comment5.target=int\ getMode()
-numComments=6
+comment5.target=double\ getMedian()
+comment6.params=
+comment6.target=int\ getMode()
+numComments=7

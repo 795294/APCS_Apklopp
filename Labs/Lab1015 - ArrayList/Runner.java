@@ -10,7 +10,6 @@ public class Runner
     public static void main(){
         MeanMedianMode arrayList = new MeanMedianMode();
         
-        arrayList.loadArrayList();
         arrayList.printArrayList();
         
         System.out.println(arrayList.getMean());
