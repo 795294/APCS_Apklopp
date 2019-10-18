@@ -1,47 +1,57 @@
 
 /**
- * Write a description of class BubbleSort here.
+ * Sorts an ArrayList of numbers in ascending order
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Peter Klopp)
+ * @version (Lab1017 - BubbleSort)
  */
-import java.util.ArrayList;
+import java.util.*;
 
 public class BubbleSort
 {
-    ArrayList<Integer>nums = new ArrayList<Integer>();
+    
 
     public BubbleSort() {
-        loadArrayList(100);
-        bubbleSort(nums, nums.size());
+        
     }
 
-    public void loadArrayList(int n){
-        for(int i = 0; i<n; i++){
+    public void loadArrayList(ArrayList<Integer> n, int x){
+        for(int i = 0; i<x; i++){
+            
             int rand = (int)(Math.random()*100);
 
-            nums.add(rand);
+            n.add(rand);
+            
+            System.out.print(n.get(i)+",");
         }
     }
 
-    public void swap(ArrayList<Integer> numsList, int i, int j){
-        int temp = numsList.get(i);
+    public void swap(ArrayList<Integer> y, int j){
+        int temp = y.get(j+1);
 
-        numsList.get(i) = numsList.get(j);
+        y.set(j+1, y.get(j));
 
-        numsList.get(j) = temp;
+        y.set(j,temp);
 
     }
 
-    public void bubbleSort(ArrayList<Integer> list, int n)  
+    public void bubbleSort(ArrayList<Integer> x)  
     {  
-        int i, j;  
+        System.out.println("\nSorted list: ");
         
-        for (i = 0; i < n-1; i++)      
+        for(int i= x.size(); i>=0; i--){
+            for(int j = 0; j<i ;j++){
+                if(j < i-1){
+                    if(x.get(j) > x.get(j+1)){
+                        swap(x,j);
+                    }
+                }
+            }
+        }
 
-            for (j = 0; j < n-i-1; j++)  
-                if (list.get(j) > list.get(j+1))  
-                    swap(list, list.get(j), list.get(j+1));  
+        for(int i = 0; i<x.size(); i++){
+            System.out.print(x.get(i) + ",");
+        }
     } 
 
 }

@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Runner here.
+ * Return Mean+Median+Mode of ArrayList
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Peter Klopp)
+ * @version (Lab1015 - MMM)
  */
 public class Runner
 {

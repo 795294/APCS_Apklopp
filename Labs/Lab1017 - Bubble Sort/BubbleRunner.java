@@ -1,33 +1,23 @@
 
 /**
- * Write a description of class BubbleRunner here.
+ * Sorts an ArrayList of numbers in ascending order
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Peter Klopp)
+ * @version (Lab1017 - BubbleSort)
  */
+import java.util.*;
+
 public class BubbleRunner
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class BubbleRunner
-     */
-    public BubbleRunner()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public static void main(){
+        
+        ArrayList<Integer>nums = new ArrayList<Integer>();
+        
+        BubbleSort list = new BubbleSort();
+        
+        list.loadArrayList(nums, 1000);
+        
+        list.bubbleSort(nums);
+        
     }
 }
