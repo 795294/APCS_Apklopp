@@ -12,11 +12,11 @@ public class SortTester
 
     public void loadNumbers(ArrayList<Integer> n, int x){
         for(int i = 0; i<x; i++){
-            
+
             int rand = (int)(Math.random()*100000);
 
             n.add(rand);
-            
+
             System.out.print(n.get(i)+",");
         }
     }
@@ -24,7 +24,7 @@ public class SortTester
     public void bubbleSort(ArrayList<Integer> n)  
     {  
         System.out.println("\nBubble Sorted list: ");
-        
+
         for(int i= n.size(); i>=0; i--){
             for(int j = 0; j<i ;j++){
                 if(j < i-1){
@@ -38,69 +38,70 @@ public class SortTester
                 }
             }
         }
-        
+
         for(int i = 0; i<n.size(); i++){
             System.out.print(n.get(i) + ",");
         }
     } 
-    
+
     public void insertSort(ArrayList<Integer> n){
         System.out.println("\nInsertion Sorted list: ");
         for(int i = 1; i < n.size(); i++){
-            for(int j = i; j > 0; j--){
-                if(n.get(j) < n.get(j-1)){
-                    int temp = n.get(j-1);
+            int j = i;
+            while((j>0) && n.get(j) < n.get(j-1)){
+                int temp = n.get(j-1);
 
-                    n.set(j-1, n.get(j));
+                n.set(j-1, n.get(j));
 
-                    n.set(j,temp);
-                }
+                n.set(j,temp); 
+
+                j = j-1;
             }
+
         }
-        
+
         for(int i = 0; i<n.size(); i++){
             System.out.print(n.get(i) + ",");
         }
     }
-    
+
     public void selectSort(ArrayList<Integer> n){
         System.out.println("\nSelection Sorted list: ");
         for(int i = 0; i < n.size()-1; i++){
             int minNum = i;
-            
+
             for(int j = i+1; j < n.size(); j++){
                 if(n.get(j)<n.get(minNum)){
                     minNum = j;
                 }
             }
-            
-            int smallerNumber = n.get(minNum);
-            
+
+            int smallestNumber = n.get(minNum);
+
             n.set(minNum, n.get(i));
-            
-            n.set(i, smallerNumber);
-            
+
+            n.set(i, smallestNumber);
+
         }
-        
-        
+
         for(int i = 0; i<n.size(); i++){
             System.out.print(n.get(i) + ",");
         }
     }
-    
+
     public static void main(){
         ArrayList<Integer> numList = new ArrayList<Integer>();
-        
+
         SortTester sort = new SortTester();
-        
+
         sort.loadNumbers(numList, 100000);
-        
+
         sort.bubbleSort(numList);
-        
+
         sort.insertSort(numList);
-        
+
         sort.selectSort(numList);
-        
+
     }
 
 }
