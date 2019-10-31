@@ -7,27 +7,28 @@
  */
 public class Student
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private String fullName = "";
+    private String fName = "";
+    private String mName = "";
+    private String lName = "";
+    private int studentNum;
+    private double gpa;
 
     /**
      * Constructor for objects of class Student
      */
-    public Student()
+    public Student(String name, int num, double GPA)
     {
-        // initialise instance variables
-        x = 0;
+       fullName = name;
+       
+       studentNum = num;
+       
+       gpa = GPA;
     }
+    
+   
+    
+   
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+
 }

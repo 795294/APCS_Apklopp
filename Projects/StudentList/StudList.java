@@ -20,8 +20,10 @@ public class StudList
 
     }
 
-    public void addStudent(String fullName){
-        int comma = fullName.indexOf(",");
+    //public void addStudent(){
+        
+        
+        /*int comma = fullName.indexOf(",");
 
         //format 1
         if(comma != -1 && fullName.indexOf(" ") != fullName.lastIndexOf(" ")){
@@ -47,7 +49,41 @@ public class StudList
         if(comma == -1 && fullName.indexOf(" ") == fullName.lastIndexOf(" ")){
             fName = fullName.substring(0, fullName.indexOf(" "));
             lName = fullName.substring(fullName.lastIndexOf(" "));
+        }*/
+    //}
+    
+    public void addStudent(){
+        Scanner input = new Scanner(System.in);
+        
+        String inputName = "";
+        
+        int inputNum;
+        
+        double inputGPA;
+        
+        System.out.print("Student name: ");
+        inputName = input.nextLine();
+        
+        System.out.print("Student number: ");
+        inputNum = input.nextInt();
+        
+        System.out.print("Student GPA: ");
+        inputGPA = input.nextDouble();
+        
+        //Student studListObject = new Student(inputName, inputNum, inputGPA);
+        studList.add(studListObject);
+           
+    }
+    
+    /*
+     * Clears the screen and then prints the list to the screen.  
+     * Does not print null records
+     */
+    public void printList(){
+        for(int i = 0; i<studList.size(); i++){
+            System.out.print(studList.get(i) + "/n" );
         }
+        
     }
     
     public void deleteStudent(String lastName){

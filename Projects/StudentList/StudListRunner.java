@@ -15,21 +15,27 @@ public class StudListRunner
         
     }
 
-    public static void main(){
-        
+    public static void mainMenu(){
         StudList studList = new StudList();
         
-        Scanner in = new Scanner(System.in);
-        String inputStatement = in.nextLine();
+        Scanner kb = new Scanner(System.in);
         
-        while(!inputStatement.equals("quit")){
+        String inputStr= "";
+        
+        while(!inputStr.equals("quit")){
+            System.out.println("\n Please select an option by typing a number or type \"quit\" and to exit.");
             
-            inputStatement = in.nextLine();
-
-            studList.addStudentToList("");
-                
+            System.out.println("1. Add a student\n2. Delete a student\n3. Print StudentList");
+            System.out.println("4. Search for a Student\n5. Clear Student List\n6. Sort Student List");
+            System.out.println("7. Print one Student\n8. Edit Student List");
+            inputStr = kb.nextLine();
             
+            if(inputStr.equals("1")){
+                //studList.addStudent();
+            }
+            if(inputStr.equals("3")){
+                //studList.printList();
+            }
         }
-        
     }
 }
