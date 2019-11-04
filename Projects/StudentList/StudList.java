@@ -70,9 +70,16 @@ public class StudList
         System.out.print("Student GPA: ");
         inputGPA = input.nextDouble();
         
-        //Student studListObject = new Student(inputName, inputNum, inputGPA);
+        Student studListObject = new Student(inputName, inputNum, inputGPA);
         studList.add(studListObject);
            
+    }
+    
+    public void deleteStudent(int stuNumber){
+        for(int i  = 0; i < studList.size(); i++){
+            //if(studList.get(i).stuNumber == stuNumber){
+            //}
+        }
     }
     
     /*
@@ -86,22 +93,6 @@ public class StudList
         
     }
     
-    public void deleteStudent(String lastName){
-        for(int i  = 0; i < studList.size(); i++){
-            ///if(studList.get(i).indexOf(lastName) != -1){
-               //studList.remove(i);
-            //}
-        }
-        
-    }
-    
-    public void deleteStudent(int stuNumber){
-        for(int i  = 0; i < studList.size(); i++){
-            //if(studList.get(i).stuNumber == stuNumber){
-            //}
-        }
-    }
-    
     public void editStudentList(int stuNumber){
         
     }
@@ -110,9 +101,6 @@ public class StudList
         
     }
     
-    public void printList(){
-        
-    }
     
     public void printStudent(){
         

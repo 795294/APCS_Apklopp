@@ -31,11 +31,20 @@ public class StudListRunner
             inputStr = kb.nextLine();
             
             if(inputStr.equals("1")){
-                //studList.addStudent();
+                studList.addStudent();
             }
-            if(inputStr.equals("3")){
-                //studList.printList();
-            }
+            // if(inputStr.equals("2")){
+                // studList.addStudent();
+            // }
+            // if(inputStr.equals("1")){
+                // studList.addStudent();
+            // }
+            // if(inputStr.equals("1")){
+                // studList.addStudent();
+            // }
+            // if(inputStr.equals("3")){
+                // studList.printList();
+            // }
         }
     }
 }
