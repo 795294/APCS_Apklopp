@@ -7,12 +7,12 @@
  */
 public class Student
 {
-    private String fullName = "";
-    private String fName = "";
-    private String mName = "";
-    private String lName = "";
-    private int studentNum;
-    private double gpa;
+    public String fullName = "";
+    public String fName = "";
+    public String mName = "";
+    public String lName = "";
+    public int studentNum;
+    public double gpa;
 
     /**
      * Constructor for objects of class Student
@@ -26,9 +26,36 @@ public class Student
        gpa = GPA;
     }
     
-   
+    public String getFullName(){//  getter for an instance variable
+       return lName + "," + fName + mName;
+    }
     
-   
-
-
+    public double getGPA(){
+       return gpa; 
+    }
+    
+    public int getStuNumber(){
+       return studentNum;
+    }
+    
+    public void setFirstName(String fn){
+        fName = fn;
+    }
+    
+    public void setMiddleName(String mn){
+        mName = mn;
+    }
+    
+    public void setLastName(String ln){
+        lName = ln;
+    }
+    
+    public void setStuNumber(int sn){
+        studentNum = sn;
+    }
+    
+    public void setGPA(int gradePoint){
+        gpa = gradePoint;
+    }
+    
 }
