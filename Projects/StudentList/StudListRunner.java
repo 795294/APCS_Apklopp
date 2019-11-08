@@ -33,6 +33,11 @@ public class StudListRunner
             if(inputStr.equals("1")){
                 studList.addStudent();
             }
+            if(inputStr.equals("2")){
+                studList.deleteStudent();
+                
+                System.out.println("Specify Name or Number:");
+            }
             if(inputStr.equals("3")){
                 studList.printList();
             }

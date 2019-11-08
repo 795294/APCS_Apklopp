@@ -40,20 +40,43 @@ public class StudList
         
         Student studListObject = new Student(inputName, inputNum, inputGPA);
         studList.add(studListObject);
+        
+        studListObject.parseUserInput();
+        studListObject.setStuNumber(inputNum);
+        studListObject.setGPA(inputGPA);
            
     }
     
     public void deleteStudent(int stuNumber){
-        for(int i  = 0; i < studList.size(); i++){
-            //if(studList.get(i).stuNumber == stuNumber){
-            //}
-        }
+        // Scanner input = new Scanner(System.in);
+        
+        // String inputName = "";
+        
+        // int inputNum;
+        
+        // double inputGPA;
+        
+        // System.out.print("Student name: ");
+        // inputName = input.nextLine();
+        
+        // System.out.print("Student number: ");
+        // inputNum = input.nextInt();
+        
+        // System.out.print("Student GPA: ");
+        // inputGPA = input.nextDouble();
+        
+        // Student studListObject = new Student(inputName, inputNum, inputGPA);
+        // studList.add(studListObject);
+        
+        // studListObject.parseUserInput();
+        // studListObject.setStuNumber(inputNum);
+        // studListObject.setGPA(inputGPA);
     }
     
     public void printList(){
         for(int i = 0; i<studList.size(); i++){
-            System.out.print(studList.get(i).fullName + "," 
-            + studList.get(i).studentNum + "," + studList.get(i).gpa);
+            System.out.print(studList.get(i).getFullName() + "; " 
+            + studList.get(i).getStuNumber() + "; " + studList.get(i).getGPA());
             
             System.out.println();
         }
@@ -81,10 +104,4 @@ public class StudList
         
     }
     
-    // public ArrayList<Student> filterSearchStudentList(String key){
-        
-    // }
-    
-    
-
 }
