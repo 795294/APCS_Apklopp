@@ -86,6 +86,18 @@ public class Student
     public void setLastName(String ln){
         lName = ln;
     }
+    
+    public String getFirstName(){
+        return fName;
+    }
+
+    public String getMiddleName(){
+        return mName;
+    }
+
+    public String getLastName(){
+        return lName;
+    }
 
     public void setStuNumber(int sn){
         studentNum = sn;

@@ -34,9 +34,33 @@ public class StudListRunner
                 studList.addStudent();
             }
             if(inputStr.equals("2")){
-                studList.deleteStudent();
                 
-                System.out.println("Specify Name or Number:");
+                System.out.println("Would you like to enter a last name or a student number? Enter \"Number\" or \"Last Name\" to choose");
+                
+                String response = "";
+                
+                response = kb.nextLine();
+                
+                if(response.equals("Number")){
+                    System.out.println("Enter student number:");
+                    
+                    int inputNum;
+                    
+                    inputNum = kb.nextInt();
+                    
+                    studList.deleteStudent(inputNum);
+                }
+                
+                if(response.equals("Last Name")){
+                    System.out.println("Enter last name:");
+                    
+                    String lName = "";
+                    
+                    lName = kb.nextLine();
+                    
+                    studList.deleteStudent(lName);
+                }
+                
             }
             if(inputStr.equals("3")){
                 studList.printList();
