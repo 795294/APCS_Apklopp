@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=MeanMedianMode
+comment1.params=
+comment1.target=MeanMedianMode()
+comment2.params=
+comment2.target=int[][]\ loadArray()
+comment3.params=mat
+comment3.target=void\ printArray(int[][])
+comment4.params=mat
+comment4.target=double\ findRowAvg(int[][])
+comment5.params=mat
+comment5.target=int\ findRowMiddle(int[][])
+comment6.params=mat
+comment6.target=int[][]\ sort(int[][])
+comment7.params=
+comment7.target=void\ main()
+numComments=8
