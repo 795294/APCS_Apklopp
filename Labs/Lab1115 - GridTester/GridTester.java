@@ -72,6 +72,20 @@ public class GridTester
         return numGreatest;
        
     }
+    
+    public double findAvg(int mat[][]){
+        int sum = 0;
+        int count = 0;
+        
+        for(int r = 0; r<mat.length; r++){
+            for(int c = 0; c<mat[r].length; c++){
+                sum += mat[r][c];
+                count++;
+            }
+        }
+        
+        return sum/count;
+    }
 
     
     public static void main(){
@@ -86,6 +100,8 @@ public class GridTester
         System.out.println(gt.findGreatest(mat));
         
         System.out.println(gt.numberOfGreatest(mat, gt.findGreatest(mat)));
+        
+        System.out.println(gt.findAvg(mat));
         
         
     }
