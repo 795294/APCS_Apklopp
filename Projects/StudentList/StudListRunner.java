@@ -1,6 +1,6 @@
 
 /**
- * Write a description of class StudListRunner here.
+ * StudentList main menu.
  *
  * @author (Peter Klopp)
  * @version (10/25)

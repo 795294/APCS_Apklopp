@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Student here.
+ * Getters and setters for studList.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Peter Klopp)
+ * @version (11/15/19)
  */
 public class Student
 {

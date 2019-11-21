@@ -1,6 +1,6 @@
 
 /**
- * Write a description of class StudList here.
+ * Student list manipulation methods.
  *
  * @author (Peter Klopp)
  * @version (10/25)
