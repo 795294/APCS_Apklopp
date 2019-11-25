@@ -67,5 +67,10 @@ public class PixLabQuestions
  * 
  * 7. Set the zoom to 500%. Can you see squares of color? This is called pixelation. Pixelation means displaying a picture so magnified that the individual pixels look like small squares. 
  */
+
+/* A5: Modifying a picture
+ * 
+ * 
+ */
   
 }
