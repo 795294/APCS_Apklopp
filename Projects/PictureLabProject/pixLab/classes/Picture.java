@@ -255,8 +255,56 @@ public class Picture extends SimplePicture
                 rightPixel = pixels[row]                       
                 [mirrorPoint - col + mirrorPoint];
                 rightPixel.setColor(leftPixel.getColor());
+                
+                count++;
             }
         }
+        
+        System.out.print(count);
+        
+    }
+    
+    //mirror snowman arms
+    public void mirrorArms(){
+        int mirrorPoint = 190;
+        int mirrorPoint2 = 195;
+        
+        Pixel[][] pixels = this.getPixels2D(); 
+        
+        Pixel topPixel = null;     
+        Pixel bottomPixel = null;  
+        
+        for(int r = 158; r<mirrorPoint; r++){
+            for(int c = 105; c < 170; c++){
+                bottomPixel = pixels[mirrorPoint - r + mirrorPoint][c];         
+                topPixel = pixels[r][c];         
+                bottomPixel.setColor(topPixel.getColor());       
+            }     
+        }
+
+        for(int r = 170; r<mirrorPoint2; r++){
+            for(int c = 235; c < 293; c++){
+                bottomPixel = pixels[mirrorPoint - r + mirrorPoint][c];         
+                topPixel = pixels[r][c];         
+                bottomPixel.setColor(topPixel.getColor());       
+            }     
+        }
+    }
+    
+    
+    public void mirrorGull(){
+         int mirrorPoint = 343;     
+         Pixel leftPixel = null;     
+         Pixel rightPixel = null;    
+         Pixel[][] pixels = this.getPixels2D();
+    
+        for (int row = 88; row < 324; row++)     {           
+            for (int col = 239; col < mirrorPoint; col++)       {                  
+                leftPixel = pixels[row][col];               
+                rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];         
+                rightPixel.setColor(leftPixel.getColor());      
+            }
+        } 
     }
 
     /** copy from the passed fromPic to the

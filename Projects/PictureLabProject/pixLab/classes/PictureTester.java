@@ -37,6 +37,22 @@ public class PictureTester
         temple.explore();
     }
 
+    public static void testMirrorArms()
+    {
+        Picture snowman = new Picture("snowman.jpg");
+        snowman.explore();
+        snowman.mirrorArms();
+        snowman.explore();
+    }
+
+    public static void testMirrorGull()
+    {
+        Picture seagull = new Picture("seagull.jpg");
+        seagull.explore();
+        seagull.mirrorGull();
+        seagull.explore();
+    }
+
     /** Method to test the collage method */
     public static void testCollage()
     {
@@ -79,36 +95,36 @@ public class PictureTester
 
     public static void testFixUnderwater(){
         Picture water = new Picture("water.jpg");
-        
+
         water.fixUnderwater();
-        
+
         water.explore();
     }
-    
+
     public static void testMirrorVerticalRightToLeft(){
         Picture beach = new Picture("beach.jpg");
-        
+
         beach.mirrorVerticalRightToLeft();
-        
+
         beach.explore();
     }
 
     public static void testMirrorHorizontal(){
         Picture beach = new Picture("beach.jpg");
-        
+
         beach.mirrorHorizontal();
-        
+
         beach.explore();
     }
-    
+
     public static void testMirrorHorizontalBotToTop(){
         Picture beach = new Picture("beach.jpg");
-        
+
         beach.mirrorHorizontalBotToTop();
-        
+
         beach.explore();
     }
-    
+
     /** Main method for testing.  Every class can have a main
      * method in Java */
     public static void main(String[] args)
