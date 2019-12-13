@@ -27,7 +27,7 @@ public class StudListRunner
 
             System.out.println("1. Add a student\n2. Delete a student\n3. Print StudentList");
             System.out.println("4. Search for a Student\n5. Clear Student List\n6. Sort Student List by Name");
-            System.out.println("7. Sort Student List by Number\n8. Print one Student\n9. Edit Student List");
+            System.out.println("7. Sort Student List by Number\n8. Print one Student\n9. Edit Student List\n10. Filter List by Number");
             inputStr = kb.nextLine();
 
             if(inputStr.equals("1")){
@@ -129,6 +129,26 @@ public class StudListRunner
                     lName = kb.nextLine();
 
                     studList.editStudentList(lName);
+                }
+            }
+            
+            if(inputStr.equals("10")){
+                System.out.print("\nEnter \"1\" to filter the student list by student number.\nEnter \"2\" to filter the student list by gpa.");
+                int response = kb.nextInt();
+
+                Scanner input = new Scanner(System.in);
+                if(response == 1){
+                    
+                    System.out.print("\nNumber: ");
+                    int inputNum = input.nextInt();
+                    studList.filterSearchStudentList(inputNum);
+                    
+                }
+                if(response == 2){
+                    
+                    System.out.print("\nGPA: ");
+                    double gpa = input.nextDouble();
+                    studList.filterSearchStudentList(gpa);
                 }
             }
         }

@@ -65,8 +65,7 @@ public class StudList
     
     public void printList(){
         for(int i = 0; i<studList.size(); i++){
-            System.out.print(studList.get(i).getFullName() + "; " 
-            + studList.get(i).getStuNumber() + "; " + studList.get(i).getGPA());
+            System.out.print(studList.get(i).getFullName() + "; " + studList.get(i).getStuNumber() + "; " + studList.get(i).getGPA());
             
             System.out.println();
         }
@@ -75,18 +74,19 @@ public class StudList
     
 
     public void clearList(){
-        studList.clear();
+        studList.clear(); //arraylist method to empty the studList
         if(studList.size() <=0){
-            System.out.print("\nThere are no students currently in the Student list.");
+            System.out.print("\nThe student list is currently empty.");
         }
     }
 
     public void printStudent(String lastName){
         int count = 0;
         for(int i = 0; i<studList.size();i++){
+            
             if(lastName.equals(studList.get(i).getLastName())){
-                System.out.println("Student Name: " + studList.get(i).getFullName() + ", Student Number: " + 
-                    studList.get(i).getStuNumber() + ", Student GPA: " + studList.get(i).getGPA());
+                System.out.println("Student Name: " + studList.get(i).getFullName() + ", Student Number: " +  studList.get(i).getStuNumber() + ", Student GPA: " + studList.get(i).getGPA());
+                    
             }
             if(!lastName.equals(studList.get(i).getLastName())){
                 count++;
@@ -94,7 +94,7 @@ public class StudList
         }
 
         if(count == studList.size()){
-            System.out.println("\nStudent does not exist.");
+            System.out.println("\nThe name does not match a student in the list");
         }
     }
 
@@ -104,8 +104,7 @@ public class StudList
         for(int i = 0; i<studList.size();i++){
             
             if(stuNumber == studList.get(i).getStuNumber()){
-                System.out.println("Student Name: " + studList.get(i).getFullName() + ", Student Number: " + 
-                    studList.get(i).getStuNumber() + ", Student GPA: " + studList.get(i).getGPA());
+                System.out.println("Student Name: " + studList.get(i).getFullName() + ", Student Number: " + studList.get(i).getStuNumber() + ", Student GPA: " + studList.get(i).getGPA());
             }
             
             if(stuNumber != studList.get(i).getStuNumber()){
@@ -114,17 +113,24 @@ public class StudList
         }
 
         if(count == studList.size()){
-            System.out.println("\nStudent does not exist.");
+            System.out.println("\nThe number does not match a student in the list");
         }
+    }
+    
+    public void swap(ArrayList<Student> tempList, int i, int n){
+        Student temp = tempList.get(i);
+        tempList.set(i, tempList.get(n));
+        tempList.set(n, temp);
     }
 
    
     public void sortStudentsName(){
         for(int i = 1; i<studList.size(); i++){//insertion sort
+            
             int j = i;
-            while(j>0 && (studList.get(j).getLastName().compareTo(studList.get(j-1).getLastName()))<0)
+            while(j>0 && (studList.get(j).getLastName().compareTo(studList.get(j-1).getLastName()))<0)//comareTo is a java string method
             {
-                swapList(studList, j, j-1);
+                swap(studList, j, j-1);
                 j--;
             }
         }
@@ -132,71 +138,129 @@ public class StudList
     }
 
     public void sortStudentsNum(){
-        for(int i = 1; i<studList.size(); i++){//insertion sort
+        for(int i = 1; i<studList.size(); i++){
+            
             int j = i;
-            while(j>0 && (studList.get(j).getStuNumber() < 
-                studList.get(j-1).getStuNumber())){
-                swapList(studList, j, j-1);
+            
+            while(j>0 && (studList.get(j).getStuNumber() < studList.get(j-1).getStuNumber())){
+                swap(studList, j, j-1);
                 j--;
             }
         }
     }
 
-    //swapping method for different sorting methods
-    public void swapList(ArrayList<Student> tempList, int i, int n){
-        Student temp = tempList.get(i);
-        tempList.set(i, tempList.get(n));
-        tempList.set(n, temp);
+    
+    public void clearScreen(){
+        System.out.print('\u000C'); //unicode page breaker character
+    }
+    
+    //returns all students in studList with a student number less than r equal to a certain threshold value
+
+    public ArrayList<Student> filterSearchStudentList(int stuNum){
+        
+        ArrayList<Student> filteredList = new ArrayList<Student>();
+        
+        int existance = 0;
+
+        for(int i = 0; i<studList.size(); i++){
+            
+            if(studList.get(i).getStuNumber() <= stuNum){
+                
+                Student keyListOb = new Student(studList.get(i).getFullName(), studList.get(i).getStuNumber(), studList.get(i).getGPA());
+                filteredList.add(keyListOb);
+            }
+            
+            else{
+                existance++;
+            }
+        }
+        if(existance == studList.size()){
+            System.out.println("\nNo results");
+        }
+
+        for(int i =0; i<filteredList.size();i++){
+            System.out.println("Student Name: " + filteredList.get(i).getFullName() + ", Student Number: " + filteredList.get(i).getStuNumber() + ", Student GPA: " + filteredList.get(i).getGPA());
+        }
+
+        return filteredList;
     }
 
-    /*
-     * Allows the user to specify a student name and then update or change the Student name and GPA
-     */
+    public ArrayList<Student> filterSearchStudentList(double GPA){//stuGPA
+        ArrayList<Student> filteredList = new ArrayList<Student>();
+        
+        int existance = 0;
+
+        for(int i = 0; i<studList.size(); i++){
+            if(studList.get(i).getGPA() <= GPA){
+                
+                Student keyListOb = new Student(studList.get(i).getFullName(), studList.get(i).getStuNumber(), studList.get(i).getGPA());
+                filteredList.add(keyListOb);
+            }
+            else{
+                existance++;
+            }
+        }
+        if(existance == studList.size()){
+            
+            System.out.println("\nNo results");
+        }
+        
+        
+
+        for(int i =0; i<filteredList.size();i++){
+            
+            System.out.println("Student Name: " + filteredList.get(i).getFullName() + ", Student Number: " + filteredList.get(i).getStuNumber() + ", Student GPA: " + filteredList.get(i).getGPA());
+        }
+
+        return filteredList;
+    }
+//edit list by name
     public void editStudentList(String lastName){
         for(int i = 0; i<studList.size();i++){
+            
             if(lastName.equals(studList.get(i).getLastName())){
-                System.out.println("Student Name: " + studList.get(i).getFullName() + ", Student Number: " + 
-                    studList.get(i).getStuNumber() + ", Student GPA: " + studList.get(i).getGPA());
+                
+                System.out.println("Student Name: " + studList.get(i).getFullName() + ", Student Number: " + studList.get(i).getStuNumber() + ", Student GPA: " + studList.get(i).getGPA());
 
-                Scanner kb2 = new Scanner(System.in);
+                Scanner input = new Scanner(System.in);
                 String newName = "";
                 double newGPA;
 
                 System.out.print("Student name: ");
-                newName = kb2.nextLine();
+                newName = input.nextLine();
 
                 System.out.print("Student GPA: ");
-                newGPA = kb2.nextDouble();
+                newGPA = input.nextDouble();
 
-                Student studListTemp = new Student(newName, studList.get(i).getStuNumber(), newGPA);
-                studList.set(i, studListTemp);
+                Student temp = new Student(newName, studList.get(i).getStuNumber(), newGPA);
+                studList.set(i, temp);
             }
         }
     }
-
-    /*
-     * Allows the user to specify a Student number and then update or change the Student name and GPA
-     */
+//edit list by number
     public void editStudentList(int stuNumber){
         for(int i = 0; i<studList.size();i++){
             if(stuNumber == studList.get(i).getStuNumber()){
+                
                 System.out.println("Student Name: " + studList.get(i).getFullName() + ", Student Number: " + 
-                    studList.get(i).getStuNumber() + ", Student GPA: " + studList.get(i).getGPA());
+                studList.get(i).getStuNumber() + ", Student GPA: " + studList.get(i).getGPA());
 
-                Scanner kb2 = new Scanner(System.in);
+                Scanner input = new Scanner(System.in);
                 String newName = "";
                 double newGPA;
 
                 System.out.print("Student name: ");
-                newName = kb2.nextLine();
+                newName = input.nextLine();
 
                 System.out.print("Student GPA: ");
-                newGPA = kb2.nextDouble();
+                newGPA = input.nextDouble();
 
-                Student studListTemp = new Student(newName, studList.get(i).getStuNumber(), newGPA);
-                studList.set(i, studListTemp);
+                Student temp = new Student(newName, studList.get(i).getStuNumber(), newGPA);
+                studList.set(i, temp);
             }
         }
     }
+    
+    
     
 }
