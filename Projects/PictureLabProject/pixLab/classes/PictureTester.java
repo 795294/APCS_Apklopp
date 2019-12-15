@@ -124,6 +124,38 @@ public class PictureTester
 
         beach.explore();
     }
+    //test original coy method
+    public static void testCopy(){
+        Picture beach = new Picture("beach.jpg");
+
+        beach.copy(beach, 400, 400);
+
+        beach.explore();
+    }
+    
+    //test second copy method
+    
+    //Picture fromPic, Picture toPic, int toStartRow, int fromStartRow, int fromEndRow, int toStartCol, int fromStartCol, int fromEndCol
+    
+    //works
+    
+    public static void testCopy2(){
+        Picture beach = new Picture("beach.jpg");
+
+        beach.copy(beach, beach, 100, 0, 100, 0, 0, 200);
+
+        beach.explore();
+    }
+    
+    //works
+    
+    public static void testMyCollage(){
+        Picture beach = new Picture("beach.jpg");
+
+        beach.myCollage(beach, beach); 
+
+        beach.explore();
+    }
 
     /** Main method for testing.  Every class can have a main
      * method in Java */
@@ -147,6 +179,7 @@ public class PictureTester
         //testMirrorDiagonal();
         //testCollage();
         //testCopy();
+        //testCopy2();
         //testEdgeDetection();
         //testEdgeDetection2();
         //testChromakey();
@@ -155,5 +188,6 @@ public class PictureTester
         //testSetRedToHalfValueInTopHalf();
         //testClearBlueOverValue(200);
         //testGetAverageForColumn(0);
+        testMyCollage();
     }
 }

@@ -140,7 +140,7 @@ public class Picture extends SimplePicture
 
     public void fixUnderwater(){
         Pixel[][] pixels = this.getPixels2D();
-        
+
         int blueMid  = 155;
         int greenMid = 165;
         int redMid = 155;
@@ -152,13 +152,13 @@ public class Picture extends SimplePicture
                 } else if(pixels[r][c].getBlue()<blueMid){
                     pixels[r][c].setBlue(0);
                 }
-                
+
                 if(pixels[r][c].getGreen() > greenMid){
                     pixels[r][c].setGreen(255);
                 } else if(pixels[r][c].getGreen()<greenMid){
                     pixels[r][c].setGreen(0);
                 }
-                
+
                 if(pixels[r][c].getRed() > redMid){
                     pixels[r][c].setRed(255);
                 } else if(pixels[r][c].getRed()<redMid){
@@ -188,7 +188,31 @@ public class Picture extends SimplePicture
             }
         } 
     }
-    
+
+    //partial mirror vertical
+    public void mirrorVertical(int startRow, int endRow, int startCol, int endCol)
+    {
+        int mirror = (startCol+endCol)/2; //middle of the columns
+        Pixel leftPixel = null;
+        Pixel rightPixel = null;
+        Pixel[][] pixels = this.getPixels2D();
+
+        // loop through the rows from start to end
+        for (int row = startRow; row < endRow; row++)
+        {
+            // loop from start column to the midpoint
+            for (int col = startCol; col < mirror; col++)
+            {
+
+                leftPixel = pixels[row][col];      
+                rightPixel = pixels[row][mirror - col + mirror];
+                rightPixel.setColor(leftPixel.getColor());
+
+            }
+
+        }
+    }
+
     public void mirrorVerticalRightToLeft()
     {
         Pixel[][] pixels = this.getPixels2D();
@@ -205,7 +229,7 @@ public class Picture extends SimplePicture
             }
         } 
     }
-    
+
     public void mirrorHorizontal(){
         Pixel[][] pixels = this.getPixels2D();     
         Pixel topPixel = null;     
@@ -255,25 +279,25 @@ public class Picture extends SimplePicture
                 rightPixel = pixels[row]                       
                 [mirrorPoint - col + mirrorPoint];
                 rightPixel.setColor(leftPixel.getColor());
-                
+
                 count++;
             }
         }
-        
+
         System.out.print(count);
-        
+
     }
-    
+
     //mirror snowman arms
     public void mirrorArms(){
         int mirrorPoint = 190;
         int mirrorPoint2 = 195;
-        
+
         Pixel[][] pixels = this.getPixels2D(); 
-        
+
         Pixel topPixel = null;     
         Pixel bottomPixel = null;  
-        
+
         for(int r = 158; r<mirrorPoint; r++){
             for(int c = 105; c < 170; c++){
                 bottomPixel = pixels[mirrorPoint - r + mirrorPoint][c];         
@@ -290,14 +314,13 @@ public class Picture extends SimplePicture
             }     
         }
     }
-    
-    
+
     public void mirrorGull(){
-         int mirrorPoint = 343;     
-         Pixel leftPixel = null;     
-         Pixel rightPixel = null;    
-         Pixel[][] pixels = this.getPixels2D();
-    
+        int mirrorPoint = 343;     
+        Pixel leftPixel = null;     
+        Pixel rightPixel = null;    
+        Pixel[][] pixels = this.getPixels2D();
+
         for (int row = 88; row < 324; row++)     {           
             for (int col = 239; col < mirrorPoint; col++)       {                  
                 leftPixel = pixels[row][col];               
@@ -314,6 +337,7 @@ public class Picture extends SimplePicture
      * @param startRow the start row to copy to
      * @param startCol the start col to copy to
      */
+    //working
     public void copy(Picture fromPic, 
     int startRow, int startCol)
     {
@@ -321,6 +345,7 @@ public class Picture extends SimplePicture
         Pixel toPixel = null;
         Pixel[][] toPixels = this.getPixels2D();
         Pixel[][] fromPixels = fromPic.getPixels2D();
+
         for (int fromRow = 0, toRow = startRow; 
         fromRow < fromPixels.length &&
         toRow < toPixels.length; 
@@ -333,6 +358,35 @@ public class Picture extends SimplePicture
             {
                 fromPixel = fromPixels[fromRow][fromCol];
                 toPixel = toPixels[toRow][toCol];
+                toPixel.setColor(fromPixel.getColor());
+            }
+        }   
+    }
+
+    //second copy method that allows copying just one part of the fromPic
+
+    public void copy(Picture fromPic, Picture toPic,
+    int toStartRow, int fromStartRow, int fromEndRow,
+    int toStartCol, int fromStartCol, int fromEndCol)
+    {
+        Pixel fromPixel = null;
+        Pixel toPixel = null;
+        Pixel[][] toPixels = toPic.getPixels2D(); //copy to parameter
+        Pixel[][] fromPixels = fromPic.getPixels2D(); //copy from parameter
+        for (int fromRow = fromStartRow, toRow = toStartRow; //increments the rows of the from pic and the to pic from start to finish
+        fromRow < fromEndRow &&
+        toRow < toPixels.length; //the entire toPixels array represents pat of the fromPixels array
+        fromRow++, toRow++)
+        {
+            for (int fromCol = fromStartCol, toCol = toStartCol; //
+            fromCol < fromEndCol &&
+            toCol < toPixels[0].length;  
+            fromCol++, toCol++)
+            {
+                fromPixel = fromPixels[fromRow][fromCol];
+
+                toPixel = toPixels[toRow][toCol];
+
                 toPixel.setColor(fromPixel.getColor());
             }
         }   
@@ -353,6 +407,23 @@ public class Picture extends SimplePicture
         this.copy(flower2,500,0);
         this.mirrorVertical();
         this.write("collage.jpg");
+    }
+
+    public void myCollage(Picture fromPic, Picture toPic){
+        //Picture fromPic, Picture toPic, int toStartRow, int fromStartRow, int fromEndRow, int toStartCol, int fromStartCol, int fromEndCol
+        copy(fromPic, toPic, 100, 0, 100, 0, 0, 200);
+        
+        fromPic.greyscale();
+        
+        //Picture fromPic, Picture toPic, int toStartRow, int fromStartRow, int fromEndRow, int toStartCol, int fromStartCol, int fromEndCol
+        copy(fromPic, toPic, 100, 0, 100, 0, 0, 200);
+        
+        fromPic.zeroBlue();
+        
+        //int startRow, int endRow, int startCol, int endCol
+        toPic.mirrorVertical(0, 100, 0, 150);
+        
+        copy(fromPic, toPic, 100, 0, 100, 0, 0, 200);
     }
 
     /** Method to show large changes in color 
