@@ -8,9 +8,47 @@
 public class Sem1Final
 {
     private int[] nums = {1, 2, 3, 4, 5};
+    
+    int[][] num = new int[10][10];
+    
     public Sem1Final()
     {
         
+    }
+    
+    public static void frq(){
+        String[] randStrings = {"yes", "no", "maybe"};
+        
+        Sem1Final sf = new Sem1Final();
+        
+        System.out.println(sf.getRandomResponse(randStrings));
+        
+        int[][] num = new int[10][10];
+        
+        System.out.println(sf.loadNums(num));
+    }
+    
+    public String getRandomResponse(String[] str){
+        int randomIndex = (int)(Math.random()*str.length);
+        
+        return str[randomIndex];
+    }
+    
+    
+    public int loadNums(int[][] mat){
+        int evensCount = 0;
+        
+        for(int r = 0; r<mat.length; r++){
+            for(int c = 0; c < mat[r].length; c++){
+                mat[r][c] = ((int)(Math.random()*9))+1;
+                
+                if(mat[r][c]%2==0){
+                    evensCount++;
+                }
+            }
+        }
+        
+        return evensCount;
     }
     
     public int threeA(){
